@@ -1,0 +1,79 @@
+void getInput(Input *input,int *pause)
+{
+    
+
+SDL_Event event;
+
+
+    SDL_PollEvent(&event);
+    
+        switch (event.type)
+        {
+
+           
+            case SDL_KEYDOWN:
+                switch (event.key.keysym.sym)
+                {
+                  
+
+                    case SDLK_a:
+                        input->left = 1;
+                    break;
+
+                    case SDLK_d:
+                        input->right = 1;
+                    break;
+
+                    case SDLK_s:
+                        input->down = 1;
+                    break;
+
+                    case SDLK_w:
+                        input->up = 1;
+                    break;
+
+                    case SDLK_SPACE:
+                        input->jump = 1;
+                    break;
+
+                   /* default:
+                    case SDLK_LALT:
+                    	input->speed = 1;
+                    break;*/
+                }
+            break;
+
+            case SDL_KEYUP:
+                switch (event.key.keysym.sym)
+                {
+
+                    case SDLK_a:
+                        input->left = 0;
+                    break;
+
+                    case SDLK_d:
+                        input->right = 0;
+                    break;
+
+                    case SDLK_s:
+                        input->down = 0;
+                    break;
+
+                    case SDLK_w:
+                        input->up = 0;
+                    break;
+
+                    case SDLK_SPACE:
+                        input->jump= 0;
+                    break;
+	           /* case SDLK_LALT:
+                    	input->speed = 0;
+                    break;*/
+                    default:
+                    break;
+                }
+            break;
+
+        }
+
+    }
